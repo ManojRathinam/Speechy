@@ -1,0 +1,22 @@
+modules = ["python-3.11"]
+
+[nix]
+packages = ["ffmpeg-full"]
+
+run = "python Speechy.py"
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 41944430
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python Speechy.py"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
